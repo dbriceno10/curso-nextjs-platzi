@@ -1,0 +1,65 @@
+Tipos de rutas
+
+Rutas estáticas ---> /about/
+Son rutas que no cambian, no dependen de ningún parámetro, como lo serían la ruta para el about o la del home
+
+Rutas dinámicas ---> /user/:id/  ---> /user/1/  ---> /user/2/
+Son rutas que dependen de un parámetro, como la ruta para mostrar un usuario en concreto
+
+Como cambiar el leguaje seleccionado en VS Code?
+
+> 1er paso
+ctrl + shif + p
+
+> 2do paso - seleccionar lo siguiente:
+change language Mode
+
+> 3er paso - Escribir 
+Javascript React
+
+> y listo !! les autocompletara las etiquetas.
+
+Routing basado en el file system
+
+🗺️ Routing
+<h4>Ideas/conceptos claves</h4>
+Rutas Estáticas: Son las que son sencillas
+
+Rutas Dinámicas: Son aquellas que se generan de una forma consecutiva dependiendo de variables
+
+<h4>Apuntes</h4>
+Todo lo que esta relacionado con paginas y navegación se entiende con el nombre de routing. En Next.js ya cuenta con una solución para no preocuparnos del tema. Cuenta con dos soluciones:
+
+Rutas Estáticas
+
+/about/
+Rutas Dinámicas
+
+/user/platzi
+Si se quiere hacer rutas dinámicas con parámetros, nombramos el archivo de esta forma:
+
+[parametro].js
+para leer el parámetro se puede usar el hook de Next.js
+
+import { useRouter } from "next/router";
+
+const ProductItem = () => {
+  const {
+    query: { productId },
+  } = useRouter();
+	  return <div>Esta es la pagina del producto: {productId}</div>;
+};
+
+export default ProductItem;
+Los cambios que ejecutamos vienen con Hot Reload y fast refresh. Es decir que se aplican rápidamente en en el navegador.
+
+Cada vez que creamos un archivo en pages se agregan a las rutas de la aplicación. Esta manera de hacer rutas se denomina routing basado en file system
+
+RESUMEN: Crear rutas en Next.js es bastante sencillo debido a que usa routing basado en file system
+
+
+Si utilizan MaterialUI acá les dejo un link que me sirvió para configurarlo.
+https://github.com/mui-org/material-ui/tree/master/examples/nextjs
+
+Si utilizan styled components acá otro link también
+https://github.com/vercel/next.js/blob/canary/examples/with-styled-components/pages/_document.js
