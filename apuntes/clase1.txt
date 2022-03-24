@@ -1,0 +1,72 @@
+Valor agregado de Next.js:
+Un sistema de enrutamiento intuitivo basado en páginas (con soporte para rutas dinámicas)
+La representación previa, tanto la generación estática (SSG) como la representación del lado del servidor (SSR) son compatibles por página
+División automática de código para cargas de página más rápidas
+Enrutamiento del lado del cliente con captura previa optimizada
+Compatibilidad con CSS y Sass incorporada, y compatibilidad con cualquier biblioteca CSS-in-JS
+Entorno de desarrollo con soporte Fast Refresh
+Rutas de API para crear endpoints de API con funciones sin servidor
+Totalmente ampliable
+
+Diferencias entre CSR y SSR:
+/
+Hola a todos les quiero compartir este aporte de informacion que recolecte, este tema es importante de saber a detalle para saber que es exactamente Next.js para asi usarlo de la mejor manera, espero les ayude.
+/
+Al solicitar alguna página web, existen 3 formas principales en las que el navegador procesa una determinada respuesta del servidor para mostrar el contenido enviado, estas tres formas son:
+/
+CSR (Client Side Rendering): significa que el cliente, es decir el navegador, va a renderizar casi toda la página web por sí mismo, exactamente, lo que ocurre es:
+/
+
+El servidor donde está toda la información de nuestra web, sólo envía un simple archivo HTML que sólo contiene la estructura básica y los enlaces que permiten al navegador acceder a los archivos JS y ejecutar el Frontend Framework que utilizamos.
+/
+El navegador recibe el archivo HTML, pero lo único que realmente le importa es descargar los archivos JS y ejecutar el Frontend Framework que utilizamos después, para que empiece a crear la página web de forma 0.
+/
+Una vez que la página web está completamente generada, el navegador la muestra, y el usuario puede utilizarla, en el caso de que la información que muestra el sitio web deba ser actualizada o modificada, la página se comunica con el servidor por API.
+/
+Ventajas del CSR:
+/
+
+Ideal para aplicaciones web.
+/
+Renderización rápida del sitio cuando se necesita cambiar después de la primera vez que se carga la página.
+/
+Proporciona un buen rendimiento si la página tiene muchas interacciones.
+/
+Contras de CSR:
+/
+
+No conduce a un buen CEO.
+/
+Carga lenta la primera vez que se entra en la página.
+/
+Consume mucha potencia informática del dispositivo del cliente.
+/
+Hoy en día CSR es lo que utilizan las SPA para ser generadas en el navegador.
+/
+/
+SSR (Server Side Rendering): implica que el navegador sólo generará unas partes de toda nuestra web, concretamente lo que ocurre es:
+/
+
+El servidor donde está toda la información de nuestra web, envía un archivo HTML completo que contiene la mayor parte y recursos (imágenes, vídeos, etc) de nuestra web y los enlaces que permiten al navegador acceder a los archivos JS y ejecutar el Frontend Framework que utilizamos.
+/
+El navegador recibe el archivo HTML y lo renderiza, pero la página web mostrada no es interactiva, por lo que el navegador también descarga los archivos JS y a partir de ahí ejecuta el Frontend Framework que utilizamos, de forma que la página web ya es interactiva.
+/
+Una vez que la página web está completamente generada, el navegador la muestra, y el usuario puede utilizarla, si la información que muestra la página web necesita ser actualizada o modificada, la página comunica al servidor que necesita cierta información nueva, por lo que el proceso se repite y el servidor envía un nuevo archivo html que el navegador lee y que tiene archivos js enlazados para ser ejecutados por react también, pero ahora el archivo html tiene la nueva información solicitada.
+/
+Pros de SSR:
+/
+
+Ideal para sitios estáticos
+/
+Carga rápida para la primera vez que se entra en la página
+/
+Bastante bueno para el SEO
+/
+Contras de SSR:
+/
+
+Requiere recargar la página cada vez que se solicita nueva información y cuya velocidad no es muy rápida.
+/
+La página es más propensa y vulnerable a problemas de seguridad.
+/
+SSR es el comportamiento por defecto de la web, ya que esta como siempre recarga la página cuando se solicita una información determinada del servidor, pero con el paso del tiempo se desarrollaron las SPAs, pero para mejorar el SEO las SPAs tienen, esta nueva forma de renderizar las páginas web la cual es SSR que si en caso de que uses React.js, la mejor opcion es hacerlo usando el framework Next.js.

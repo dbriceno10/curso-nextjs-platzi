@@ -1,0 +1,33 @@
+Anotaciones de esta clase 😊
+Instalar NEXTJS
+
+Requisitos
+
+Node (>12,>10)
+Git
+Browser - Goggle Chrome - para utilizar la DevTools
+Instalacion
+
+CLI - Automatica:
+yarn create next-app
+Manual
+mkdir platzi-nextjs
+
+cd platzi-nextjs
+
+npm init -y
+
+yarn add next react react-dom
+npm add next react react-dom
+
+Agregar el siguiente codigo al "script"
+
+"scripts": {
+  "dev": "next",
+  "build": "next build",
+  "start": "next start"
+},
+
+
+5
+Next JS es un framework basado en React JS, es decir nos ayuda a crear aplicaciones Reactivas que el servidor se encarga de renderizarla. Es muy ligero y práctico por lo que el desarrollo de aplicaciones con Javascript y React JS se nos hace más rápido y con pocas complicaciones.
