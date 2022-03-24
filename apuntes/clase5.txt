@@ -1,0 +1,13 @@
+Para los que quieren saber como podemos usar más de un parámetro, recuerden que el router está basado en el file system, por lo que si queremos más parámetros nuestro sistema de archivos en pages lucirá de la siguiente manera para este ejemplo:
+Ruta ejemplo: /users/[id]/edit/[idPost]
+
+File system en pages para la ruta ejemplo
+
+- pages
+- - users
+- - - [id]
+- - - - edit
+- - - - - [idPost].js
+Dentro de [idPost].js ya podemos obtener el query param o incluso los query que enviemos en la url, sea /users/23/edit/32?title=new title
+
+let {query: {id, idPost, title}} = useRouter()
