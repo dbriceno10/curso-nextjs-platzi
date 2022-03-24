@@ -1,0 +1,60 @@
+🔍 Under The Hood: Optimizaciones ocultas en las paginas y Pre rendering de páginas
+<h4>Ideas/conceptos claves</h4>
+chunk.- pedazo de código
+
+CSR.- Client Side Rendering
+
+SSR.- Server Side Rendering
+
+<h4>Apuntes</h4>
+"scripts": {
+    "dev": "next", // desarrollo
+    "build": "next build", // build prod
+    "start": "next start" // server prod
+},
+Al momento de compilar separa el código con la técnica code splitting. Ademas de aplicar hashes a los assets. Ademas que para cada pagina generara un chunk especifico y mantendrá el código que se usara durante toda la aplicación
+
+Podemos ver que las paginas generadas son SSR dándonos más SEO que con CSR
+
+RESUMEN: Next.js aplica al bundle final diferentes optimizaciones como ser vendor files que hacen que no nos preocupemos de la configuración del proyecto. Ademas que nos da un mejor SEO por el server side rendering
+
+
+Optimizacion de Archivos
+/
+Next.js tiene como objetivo ayudarnos a crear aplicaciones React evitando que nos preocupemos por cosas que no debemos hacer. Y también optimizando el código que creamos cuando se compila. Así, una de las maneras en que Next.js hace posible la optimización del código es utilizando Code Splitting en lugar de hacer JS Bundles. Vamos a explicar cada uno de ellos a fondo:
+/
+
+JS Bundles: Es la forma más común de optimizar el código. Consiste en juntar todo el código que hicimos en un solo archivo JS. De tal manera que se reduce y optimiza para que el archivo principal tenga menos bytes que todos los archivos juntos sin compresión y optimización. De este modo, el servidor sólo enviará un único archivo, y el navegador renderizará la página más rápidamente. JS Bundler es utilizado por herramientas como webpack, Gulp, entre otras. Pero el inconveniente de hacer bundles. Es que si la aplicación que estamos creando es muy compleja o tiene demasiados archivos, hacer JS Bundles será ineficiente a medida que pase el tiempo, debido a que muchas veces el navegador recibirá código que ni siquiera necesita.
+/
+División del código: Es un nuevo método utilizado por herramientas de desarrollo como Next.js para solucionar los problemas que tiene hacer JS Bundles. Este nuevo método se basa en la premisa de que en lugar de fusionar todo el código en un solo archivo. Debemos identificar las partes o secciones de código que se repiten en un determinado archivo. Extraerlas después del archivo original. A continuación, ponerlo en otro archivo, y por último comprimirlo y optimizarlo para que tenga menos archivos que el original. Este proceso debe repetirse para cada archivo dentro de la carpeta de páginas que tengamos. De esta manera, tendremos muchos archivos. Pero la ventaja de hacerlo. Es que sólo enviaremos al navegador las partes de código que necesita para renderizar una página concreta. A saber, cada uno de los archivos que tendrá el navegador, se llaman chunks.
+/
+Los chunks se caracterizan por su estructura y por la forma de nombrar cada uno de ellos.
+/
+Por ejemplo. Normalmente, los chunks se nombran de esta manera:
+/
+Screen Shot 2021-09-28 at 11.50.15 AM.png
+/
+Y contienen el siguiente código:
+/
+Screen Shot 2021-09-28 at 11.46.40 AM.png
+/
+La forma en que podemos observar la forma en que Next.js realiza la división del código utilizando nuestro código es:
+/
+
+En primer lugar, ejecutar el comando npm run build (o yarn dev si usas yarn).
+/
+/Screen Shot 2021-09-28 at 11.52.05 AM.png
+/
+Verás que te muestra un output extensa, y en esa misma salida, están todos los chunks que Next.js hizo.
+/
+Screen Shot 2021-09-28 at 11.53.43 AM.png
+/
+Debajo de los chunks mostrados, hay una leyenda que nos dice que en cuanto el navegador reciba los chunks que Next.js hizo Serán renderizáados como archivos HTML. Y eso es muy importante, ya que eso significa que nuestro sitio web se renderizará rápidamente. Y que por el hecho de que el navegador reciba los archivos HTML directamente, nuestra calidad SEO aumentará.
+/
+Screen Shot 2021-09-28 at 11.54.34 AM.png
+/
+Abre tu navegador. Siguiendo así. Habilitar la opción de inspección. A continuación, seleccione la opción de red. Volver a cargar la página después. Y si analizamos los archivos mostrados, nos daremos cuenta de que son los mismos archivos (probablemente van a aparecer más archivos) que fueron mostrados en la terminal por Next.js anteriormente.
+/
+Screen Shot 2021-09-28 at 11.55.19 AM.png
+/
+El hecho de que Next.js haga la división del código, tiene todo el sentido. Debido a que Next.js es para el renderizado del lado del servidor (SSR) y la división del código es bastante útil para el tiempo de carga y el buen SEO.

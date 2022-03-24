@@ -11,3 +11,92 @@ File system en pages para la ruta ejemplo
 Dentro de [idPost].js ya podemos obtener el query param o incluso los query que enviemos en la url, sea /users/23/edit/32?title=new title
 
 let {query: {id, idPost, title}} = useRouter()
+
+¿Cómo hacer rutas dinámicas más complejas?
+/
+Seguramente después de ver esta clase os estaréis preguntando…
+/
+¿Cómo diablos puedo crear el código para una ruta dinámica más compleja?, NO ME ENSEÑARON ESO
+/
+
+/
+Una ruta dinámica tal como:
+/
+localhost:3000/producto/123/comentarios/123
+/
+Pues yo también, y creo que he encontrado la solución 😎…
+/
+Recordemos por un momento esta clase, lo que hicimos es que creamos una carpeta llamada products y dentro de esa misma carpeta añadimos un archivo llamado [productId].js
+/
+Screen Shot 2021-09-24 at 1.21.34 PM.png
+/
+Esto lo hicimos para ser capaces de obtener una ruta url como:
+/
+localhost:3000/product/123
+/
+Sin embargo, muchas veces eso no es suficiente para hacer una pagina web, o específicamente, una aplicación web, entonces, lo que debemos de hacer para conseguir una ruta como:
+/
+localhost:3000/product/123/comments/123
+/
+Entonces, lo que tenemos que hacer es:
+/
+
+Conservar a la carpeta products y borrar el archivo [productId]. js
+/
+Screen Shot 2021-09-24 at 1.22.37 PM.png
+/
+En lugar del archivo borrado, crear un nuevo archivo llamado index.js
+/
+Screen Shot 2021-09-24 at 1.23.32 PM.png
+/
+(El contenido que este dentro de ese mismo archivo será el contenido que se visualizara cuando busquemos la url: localhost:3000/producto)
+/
+Crear una carpeta llamada [productId]
+/
+Screen Shot 2021-09-24 at 1.24.58 PM.png
+/
+Dentro de esa carpeta antes mencionada, tenemos que añadir un archivo llamado index. js
+/
+Screen Shot 2021-09-24 at 1.25.50 PM.png
+/
+(El contenido que este dentro ese archivo será el contenido que se visualizara cuando busquemos la url: localhost:3000/product/‘el id de algún producto’).
+/
+Dentro de la carpeta products, también hay que añadir una carpeta llamada comments también, entonces dentro de la misma carpeta, tenemos que añadir un archivo index. js
+/
+Screen Shot 2021-09-24 at 1.27.09 PM.png
+/
+(El contenido que este dentro de ese mismo archivo será el contenido que visualizaremos cuando busquemos de la url localhost:3000/producto/‘el id de algún producto’/comentarios).
+/
+Dentro de la misma carpeta, añadir un archivo [commentId].js
+/
+Screen Shot 2021-09-24 at 1.28.37 PM.png
+/
+(El contenido que este dentro de ese mismo archivo será el contenido que visualizaremos cuando busquemos de la url localhost:3000/producto/‘el id de algún producto’/comentarios/‘el id de algún comentario’).
+/
+Importante: Cabe recalcar que aparte de tener acceso al id de un determinado comentario, también podremos acceder a el id de un determinado producto desde el archivo [comment].jsx
+/
+Solo hace falta hacer algo como:
+/
+
+import React from "react";
+import { useRouter } from "next/router";
+
+const Comment = () => {
+
+    const router = useRouter()
+    const { productId, commentId } = router.query
+
+    return (
+        <div>El comentario { productId } de el producto { commentId }</div>
+    )
+}
+
+export default Comment;
+/
+De esta manera obtendremos rutas de url más profesionales, y si queremos hacer rutas dinamicas aun mas complejas, como:
+/
+localhost:3000/product/123/comments/123/likes/123
+/
+Debemos de seguir la misma metodología aplicada.
+/
+Espero haberlos podido ayudar a hacerlo chic@s 😀.
