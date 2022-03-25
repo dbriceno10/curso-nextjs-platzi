@@ -1,0 +1,34 @@
+🖇️ Enlazando páginas
+<h4>Ideas/conceptos claves</h4>
+Anchor.- Anclaje, nos sirve para hacer hipervínculos
+
+<h4>Apuntes</h4>
+Para poder hacer un enlace de paginas debemos importar el componente Link de Next.js, como propiedad se pasa un href el cual sera la ruta que deseemos ir y este debe contener una etiqueta anchor
+
+import React from "react";
+import Link from "next/link";
+
+const Navbar = () => {
+  return (
+    <nav>
+      <menu>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </menu>
+    </nav>
+  );
+};
+
+export default Navbar;
+RESUMEN: Con la etiqueta Link de Next.js podemos direccionar las rutas de nuestra aplicación
+
+
+
+
+Next.JS reuiere que dentro del componente de Link se encuentre una etiqueta <a></a>, de forma que sea amigable para el SEO. Si no la agregas, de igual forma funciona, pero verás un warning de parte de Next.JS.
+
+Pueden ver un poco más de información de como trabajar con Styled Components o Componentes que envuelven la etiqueta <a> aquí: https://nextjs.org/docs/api-reference/next/link
