@@ -1,0 +1,28 @@
+#UnderTheHood páginas: pre rendering de páginas
+Next JS hace Server Side Rendering.
+
+Nos damos cuenta de esto haciendo click derecho y Ver código fuente de la página, en donde tenemos esto:
+
+<div id="__next">
+  <div>
+    <h1>Hola Platzi desde Next JS</h1>
+    <p>Esto es Hot Realoading y Fast Refresh</p>
+  </div>
+</div>
+Esto nos ayuda con el SEO.
+
+
+
+
+El SSR es el método en el cual el Servidor manda al cliente (navegador web) el código html listo para que se muestre en pantalla. Esto lo que significa es que el cliente no tiene que gastar computo y tiempo haciendo el proceso de renderizado, si no que ya viene hecho.
+
+Ventajas
+Permite que la pagina muestre contenido de una manera mucho mas rápida
+Es bueno para el SEO
+Desventajas
+Si el usuario quiere interacción inmediata, la pagina no lo va a poder procesar, ya que incluso aunque el html venga listo para mostrarse, aun así, el cliente tiene que preparar todo para que la pagina sea interactiva, lo cual también lleva sus milisegundos (dependiendo del dispositivo e internet)
+El proceso de descargar el js se hace cada vez que se recarga la pagina
+.
+En conclusión, el SSR es muy útil, ya que nos ayuda a que el usuario no abandone la pagina tan pronto e incluso aunque el SSR tenga sus desventajas, las ventajas son mayores.
+.
+Les dejo este articulo del creador de Electron y empleado en Walmart Labs en donde habla de como Walmart y Electron utilizan el SSR y como este ha ayudado a mejorar el engagement del e-commerce: https://medium.com/walmartglobaltech/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8
