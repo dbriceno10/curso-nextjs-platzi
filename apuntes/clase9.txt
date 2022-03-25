@@ -1,0 +1,21 @@
+Next.js ha actualizado esta parte del prefetching de paginas desde su version 10.0.3 , ahora su comportamiento por default es hacer es realizar el prefetching de cada uno de los componentes Link que se encuentre en la pagina actual al momento que esta se renderiza , No cuando se le hace hover. Esta parte ya ha sido incluida en su Documentacion https://nextjs.org/docs/api-reference/next/link
+
+Si queremos deshabilitar este comportaminento por default y solo hacer el prefetching cuando sea un hover o en el evento onMouseEnter
+simplemente debemos setear su configuracion en false
+
+<Link href="/about"  prefetch={ false } > <a> About </a> </Link>
+De esta forma ya podemos obtener el mismo comportamiento de la clase , el profesor le funciona ya que en este curso al parecer la ultima version en su momento era la 9
+
+Pueden leer mas acerca en este issue
+
+Espero les ayude !
+
+
+
+
+7
+🔍 Under The Hood: Enlazando paginas: prefetching automático
+<h4>Apuntes</h4>
+Next.js cuando usamos la etiqueta Link para nuestras rutas. Si hacemos hover o estamos encima de uno de los elementos lo que intentara hacer internamente sera pedir al servidor que prepare ese chunk de código.
+
+RESUMEN: Next.js nos ayuda bastante con técnicas las cuales son bastante inteligentes, como en este caso el prefetching de pagina
