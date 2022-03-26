@@ -6,7 +6,7 @@ simplemente debemos setear su configuracion en false
 <Link href="/about"  prefetch={ false } > <a> About </a> </Link>
 De esta forma ya podemos obtener el mismo comportamiento de la clase , el profesor le funciona ya que en este curso al parecer la ultima version en su momento era la 9
 
-Pueden leer mas acerca en este issue
+Pueden leer mas acerca en https://github.com/vercel/next.js/discussions/11793
 
 Espero les ayude !
 
