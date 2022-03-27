@@ -1,0 +1,37 @@
+Documentación de Custom App:
+https://nextjs.org/docs/advanced-features/custom-app
+
+Casos de uso:
+
+Providers (Context)
+Themes
+Layout
+Props adicionales
+
+
+
+🌟 Extendiendo el app de Next.js
+<h4>Ideas/conceptos claves</h4>
+documentación de Next.js para un custom app
+
+Advanced Features: Custom App | Next.js
+
+<h4>Apuntes</h4>
+La forma en la que Next.js renderiza en el navegador los contenidos es en el siguiente orden:
+
+Document
+App
+Nuestra Aplicación
+para usar el app de nuestra aplicación lo que haremos sera utilizar el template de la documentación de Next.js para un custom app, el cual debemos crear un archivo llamado “_app.js” en pages
+
+import { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  // Providers - Context/Providers, Theme, data
+  // Layout
+  // props adicionales
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+RESUMEN: Para crear contenedores de nuestra aplicaciones, que deseemos aplicarlo a nivel global, es muy util usar el app de Next.js creando el archivo _app.js

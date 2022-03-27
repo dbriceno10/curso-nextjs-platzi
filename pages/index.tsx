@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 const Home = () => {
   const [productList, setProductList] = useState<TProduct[]>([]);
@@ -12,7 +11,6 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Navbar />
       <h1>Home</h1>
       <p>This is the home page</p>
       <div>
