@@ -1,16 +1,12 @@
 import React from "react";
+import Navbar from "components/Navbar/Navbar";
 
-const Detail = ({ attributes, id, name, price, image }: any) => {
+const Detail = ({ id, name, price, image }: any) => {
   return (
     <div>
+      <Navbar />
       <h1>{name}</h1>
       <img src={image} alt={name} title={name} />
-      {/* <p>{attributes.description}</p>
-        <p>
-          <p>{attributes.shape}</p>
-          <p>{attributes.hardiness}</p>
-          <p>{attributes.taste}</p>
-        </p> */}
       <h2>{price}</h2>
       <p>ID: {id}</p>
     </div>

@@ -1,0 +1,77 @@
+Extendiendo el Document 
+
+Advertencias sobre extender el Document:
+
+Ya que el Document se renderiza en servidor, los eventos como onClick no funcionarán.
+Los componentes de React fuera de <Main /> no serán inicializados por el navegador. No añadir lógica de la aplicación aquí o CSS personalizado (como styled-jsx). Si necesita componentes compartidos en todas sus páginas (como un menú o una barra de herramientas).
+getInitialPropsfunción de Document no se llama durante las transiciones del lado del cliente, ni cuando una página está optimizada estáticamente.
+
+
+Documentación de Custom Document:
+https://nextjs.org/docs/advanced-features/custom-document
+
+Se usa para hacer modificaciones a todas las paginas, como por ejemplo:
+
+Favicon personalizado
+Fuentes personalizadas
+Estilos / Scripts de librerias externas
+Meta tags
+Cualquier otra cosa que puedas agregar en el <head> de HTML
+
+
+
+🌐 Extendiendo el document de Next.js
+<h4>Ideas/conceptos claves</h4>
+document.- Archivo principal de nuestra pagina donde los cambios se pueden aplicar a una escala global
+
+documentation de Next.js custom document:
+
+Advanced Features: Custom Document | Next.js
+
+<h4>Apuntes</h4>
+La estructura de nuestro proyecto suele ser
+
+Nuestra Aplicación
+Document
+App
+Normalmente solemos editar los primeros dos items
+
+Para poder editarlo creamos un archivo en pages llamado “_document.js” para usar un template definido podemos ir a la documentation de Next.js para un custom document
+
+El código quedaría de la siguiente manera
+
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+  // Cosas que podemos hacer desde el server
+	static async getInitialProps(ctx) {
+    // todos los cambios aplican para todas las paginas
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
+  render() {
+		return (
+      <Html>
+        <Head>
+          {/* lo modificamos para */}
+          {/* favicon */}
+          {/* webfonts personalizadas */}
+          {/* stylesheet externos */}
+          {/* script/js externos */}
+        </Head>
+        {/* No es muy comun editar adentro del body */}
+        {/* pero se puede usar para agregar una clase */}
+        <body className="my-body-class">
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+
+export default MyDocument
+De esta forma modificamos y customizar el document del HTML para hacer cosas personalizable de forma visible que no podemos hacer con Next.js
+
+RESUMEN: En esta clase podemos observar que para editar directamente el document debemos crear una pagina en pages, con el nombre de “_document.js” y usar como template el codígo de la documentación
