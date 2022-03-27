@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
-
+import Card from "../components/Card/Card";
 const Home = () => {
   const [productList, setProductList] = useState<TProduct[]>([]);
   useEffect(() => {
@@ -16,13 +16,15 @@ const Home = () => {
       <h1>Home</h1>
       <p>This is the home page</p>
       <div>
-        {productList?.map((product) => {
-          return (
-            <div key={product.id}>
-              <p>{product.name}</p>
-            </div>
-          );
-        })}
+        {productList?.map((product) => (
+          <Card
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+          />
+        ))}
       </div>
     </div>
   );
