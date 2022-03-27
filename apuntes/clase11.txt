@@ -1,0 +1,49 @@
+👨‍💻 Parámetros en API y Debug en Next.js
+<h4>Apuntes</h4>
+Si deseamos recibir parámetros en nuestra API, al igual como generamos nuestra ruta dinámica debemos crear un archivo [parámetro].[js | ts]
+
+Para hacer debugging en Next.js cuando corremos nuestro entorno en development debemos correr el siguiente script
+
+"scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next",
+		...
+},
+una vez que este corriendo podemos acceder al debugger en el navegador en la ruta:
+
+about:inspect
+import { NextApiRequest, NextApiResponse } from "next";
+
+const allAvos = async (request: NextApiRequest, response: NextApiResponse) => {
+  const id = request.query.id
+
+	// ANTES
+	// response.statusCode = 200; // ok
+  // response.setHeader('Content-type', 'application/json')
+  // response.end(JSON.stringify(entry)
+
+  response.status(200).json(entry)
+}
+
+export default allAvos;
+Next.js nos ofrece una mejora del paquete nativo de Node.js HTTP el cual nos da la posibilidad de usar la API de Next.js a través de un objecto mejorado ademas que nos facilita al momento de enviar los datos al cliente.
+
+Para poder consumir la API podemos hacerlo como si fuera un componente común y corriente de react
+
+import React, { useState, useEffect } from 'react'
+
+const HomePage = () => {
+  const [productList, setProductList] = useState([])
+
+  useEffect(() => {
+    // Especificamos que usaremos window
+		window
+      .fetch('/api/avo')
+      .then((response) => response.json())
+      .then(({ data, length }) => {
+        setProductList(data)
+      })
+  }, [])
+
+  return (...)
+}
+RESUMEN: Next.js nos ofrece debugging de una manera simple ademas de darnos una mejora en las funcionalidades de HTTP y crear entry points de una manera rápida e eficiente

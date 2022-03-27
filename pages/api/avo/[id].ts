@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next"; //Tipos especiales HTTP de next.js
 import DB from "@database";
 // import enablePublicAccess from "@cors";
 
