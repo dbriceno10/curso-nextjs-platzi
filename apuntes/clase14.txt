@@ -1,0 +1,43 @@
+♻️ Path aliases
+<h4>Ideas/conceptos claves</h4>
+/* .- todo lo del directorio que seleccionamos
+
+<h4>Apuntes</h4>
+Cuando creamos nuestra aplicaciones y se vuelven mas grandes, las importaciones se suelen volver de esta manera:
+
+import Navbar from '../../../../components/Navbar/Navbar'
+Esto es conocido por import hell o dot hell. Para ello se invento los path aliases. Es una forma de simplificar las rutas de nuestra aplicación.
+
+Debido a que actualmente estamos usando typescript iremos a nuestro archivo tsconfig.json y agregaremos lo siguiente
+
+{
+  "compilerOptions": {
+		// indicamos la base del proyecto
+		// segun a esto los paths aliases
+		// se ubicaran
+    "baseUrl": ".",
+    "paths": {
+			// creamos los atajos
+      "@database": ["database/db.ts"],
+      "@components/*": ["components/*"]
+    },
+	...
+}
+En el primer path, debido a que es único el atajo es simple. En el segundo alias debido a que extraeremos diferentes archivos lo especificamos con “/*”
+
+RESUMEN: Los path aliases nos ayudan a cortar las importaciones, para proyectos de grandes archivos
+
+
+Si están en Windows sí es necesario que pongan el slash en baseUrl, pero en iOS y Linux no.
+Además, con JavaScript también lo pueden hacer creando el archivo jsconfig.json y poniendo la configuración de la siguiente manera.
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    }
+  }
+}
