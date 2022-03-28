@@ -6,10 +6,10 @@ const Navbar = () => {
     <nav>
       <menu>
         <Link href="/">
-          <a>Home</a>
+          <a style={{ margin: "5px" }}>Home</a>
         </Link>
         <Link href="/about">
-          <a>About</a>
+          <a style={{ margin: "5px" }}>About</a>
         </Link>
       </menu>
     </nav>

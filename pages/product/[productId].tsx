@@ -7,24 +7,28 @@ const ProductItem = () => {
   const {
     query: { productId },
   } = useRouter();
-  const [product, setProduct] = useState<any>({});
+  const [product, setProduct] = useState<TProduct[]>([]);
   useEffect(() => {
-    console.log(productId);
     window
       .fetch(`/api/avo/${productId}`)
       .then((response) => response.json())
       // .then((data) => console.log(data)); //Investigar. Las funciones son una clase principal en js así que el console.log lo podemos utilizar de esta manera y consologuear sin pasarle ningun parámetro o funcioón anónima al then
-      .then((data) => setProduct(data));
+      .then((data) => setProduct([data]));
   }, [productId]);
   return (
     <div>
-      {/* <h1>Product Item: {router.query.productId}</h1> */}
-      <Detail
-        name={product.name}
-        image={product.image}
-        id={product.id}
-        price={product.price}
-      />
+      {!product.length ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div>
+          <Detail
+            name={product[0].name}
+            image={product[0].image}
+            id={product[0].id}
+            price={product[0].price}
+          />
+        </div>
+      )}
     </div>
   );
 };

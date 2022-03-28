@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
+import "../style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   //Está englobando en este componente a todas nuestras páginas.

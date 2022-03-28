@@ -1,0 +1,117 @@
+👁️👄👁️ Estilos en Next.js
+<h4>Ideas/conceptos claves</h4>
+CSS Modules.- Estaban bastante populares antes de la llegada de CSS-in-JS
+
+CSS-in-JS.- Es poner estilos CSS dentro de nuestro código JS
+
+<h4>Apuntes</h4>
+Next.js no nos ofrece una recomendación en particular para los estilos. Pero nos dan tres formas de dar estilos sin cambiar nada en su configuración.
+
+Built-in CSS Next.js
+
+1.- Global CSS (.css)
+
+Todos nuestros estilos se encontraran en un solo lugar para ello debemos hacer lo siguiente
+
+Crear un archivo CSS en la raíz de nuestro proyecto
+
+.container {
+  background-color: salmon;
+}
+
+/* agregarlo a la app */
+/* utilizar la prop  */
+importar el archivo en _app.js
+
+...
+import '../style.css'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (...)
+}
+
+export default MyApp
+usar la clase
+
+const Layout: React.FC = ({ children }) => {
+  return (
+    <div className="container">...</div>
+  )
+}
+
+export default Layout
+2.- Module CSS (.module.css)
+
+Usa CSS modules para usarlo debemos crear un archivo CSS el cual debe tener la siguiente nomenclatura
+
+[nombre].module.css
+Y para usarlo debemos importarlo como si fuese un archivo JS
+
+...
+import styles from './layout.module.css'
+
+const Layout: React.FC = ({ children }) => {
+  return (
+    <div className={styles.container}>...</div>
+  )
+}
+
+export default Layout
+la ventaja es que al momento de aplicarlo genera una clase única con un hash
+
+3.- CSS-in-JS Styled JSX (Next.js - Vercel)
+
+Esta es la forma de crear por defect en Next.js CSS-in-JS la cual se usa poniendo la etiqueta <style> dentro de nuestro componente, marcando la propiedad de JSX y en su contenido agregando un template literal
+
+Ejemplo
+
+const Layout: React.FC = ({ children }) => {
+  return (
+    <div>
+			...
+      <footer className="container">this is the footer</footer>
+      <style jsx>{`
+        .container {
+          background: salmon;
+        }
+      `}</style>
+    </div>
+  )
+}
+Sus ventajas es que el alcance de los estilos solo afectan al componente en si. ademas que genera clases con un hash para no colisionar estilos.
+
+RESUMEN: Se tienen tres formas de usar estilos median estilos globales, módulos y CSS-in-JS. Cada uno tiene ventajas y desventajas.
+
+
+
+Para los que usamos SCSS o SASS
+
+Debemos instalar las dependencias @zeit/next-sass node-sass
+Crear un archivo con el nombre next.config.js en el root del proyecto
+Pegar dentro del archivo next.config.js* el siguiente código:
+	const withSass = require('@zeit/next-sass')
+	module.exports = withSass({
+		cssModules: true
+	})
+Esto funciona para estilos globales y modulares.
+
+Adicional a esto, si quieren importar fuentes locales a su proyecto:
+
+Debemos instalar la dependencia npm install --save nextjs-fonts
+Dentro del archivo next.config.js escribir el siguiente código
+const withSass = require('@zeit/next-sass');
+const withFonts = require('nextjs-fonts');
+
+module.exports = withSass(withFonts({
+  webpack(config, options) {
+   return config;
+  },
+}));
+Esto implementará Sass y fuentes locales.
+
+
+CSS en JS ayuda mucho con la especificidad de CSS. Baja la especificidad y con ello aumenta la escalabilidad de tu proyecto. Si no saben mucho de especificidad les recomiendo par de links:
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+
+https://dev.to/emmabostian/css-specificity-1kca
