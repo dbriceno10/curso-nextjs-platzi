@@ -5,6 +5,7 @@
   grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
   grid-template-rows: repeat(auto-fill, minmax(400px, 400px));
   grid-gap: 10px 10px;
+  padding-bottom: 40px;
 }
 
 .title {
