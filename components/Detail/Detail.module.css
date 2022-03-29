@@ -1,0 +1,21 @@
+.title {
+  margin: 20px;
+}
+
+.img {
+  border-radius: 100%;
+  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.descriptionContainer {
+  width: 60%;
+  margin: 0 auto;
+  text-align: start;
+  padding-bottom: 30px;
+}

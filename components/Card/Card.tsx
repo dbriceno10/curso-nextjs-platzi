@@ -10,7 +10,7 @@ const CardItem = ({ id, name, image, price }: any) => {
           as="a"
           header={name}
           image={image}
-          meta={<Card.Meta style={{ color: "#295739" }}>{price}</Card.Meta>}
+          meta={<Card.Meta style={{ color: "#295739" }}>{price} USD</Card.Meta>}
         />
       </Link>
     </div>

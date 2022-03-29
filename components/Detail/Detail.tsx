@@ -1,12 +1,20 @@
 import React from "react";
+import style from "./Detail.module.css";
 
-const Detail = ({ id, name, price, image }: any) => {
+const Detail = ({ product }: any) => {
   return (
     <div>
-      <h1>{name}</h1>
-      <img src={image} alt={name} title={name} />
-      <h2>{price}</h2>
-      <p>ID: {id}</p>
+      <h1 className={style.title}>{product.name}</h1>
+      <img
+        className={style.img}
+        src={product.image}
+        alt={product.name}
+        title={product.name}
+      />
+      <h2 className={style.price}>{product.price} USD</h2>
+      <div className={style.descriptionContainer}>
+        <p>{product.attributes.description}</p>
+      </div>
     </div>
   );
 };
