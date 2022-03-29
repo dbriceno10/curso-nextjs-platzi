@@ -1,0 +1,15 @@
+CSR ➡ ❌ Afecta el SEO
+✔ algo positivo no tenemos problemas de TTFB (Time To First Byte)
+
+SSR ➡ ❌ Afecta el redimiendo de nuestro sitio web con el TTFB (Time To First Byte)
+✔ algo positivo es que mejora el SEO
+
+SSG ➡ ❎ Lo mejor de los dos mundos
+✔ No tenemos problemas de TTFB ni tampoco con el SEO
+
+
+Client Side Rendering (CSR): Significa que toda la UI, va a ser renderizada por el navegador de nuestro usuario.
+
+Server Side Rendering (SSR): Significa que ahora todo el frontend se va a renderizar en el server donde esta hosteado el sitio o la web app. Y por lo que entiendo esto significa que si alguien tiene un dispositivo muy viejo o modesto, la app o el sitio se comportará igual de rápido que si tuviera un dispositivo de gama alta; claro suponiendo que ambos tienen exactamente el mismo servicio de internet/datos.
+
+Static: Se refiere a los assets o a cierto contenido que no va a cambiar, para esto se guarda en la carpeta public, la cual debe de estar ubicada en el root de nuestro proyecto.
