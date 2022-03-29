@@ -1,20 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import { Card } from "semantic-ui-react";
 
-const Card = ({ id, name, image, price, key }: any) => {
+const CardItem = ({ id, name, image, price }: any) => {
   return (
-    <div>
-      <Link href={`product/${id}`}>
-        <a>
-          <h2>{name}</h2>
-          <img src={image} alt={name} title={name} />
-          <p>
-            Price: <strong>{price}</strong>
-          </p>
-        </a>
+    <div key={id}>
+      <Link href="/product/[id]" as={`/product/${id}`}>
+        <Card
+          as="a"
+          header={name}
+          image={image}
+          meta={<Card.Meta style={{ color: "#295739" }}>{price}</Card.Meta>}
+        />
       </Link>
     </div>
   );
 };
 
-export default Card;
+export default CardItem;

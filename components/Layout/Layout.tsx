@@ -7,12 +7,12 @@ const Layout: React.FC = ({ children }) => {
     <div className="container">
       <Navbar />
       {children}
-      <footer className="underline">Esto es un footer</footer>
+      {/* <footer className="underline">Esto es un footer</footer>
       <style jsx>{`
         .underline {
           text-decoration: underline;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };

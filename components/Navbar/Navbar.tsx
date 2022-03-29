@@ -1,17 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import { Avocado } from "../SVGIcons";
+import style from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
     <nav>
-      <menu>
-        <Link href="/">
-          <a style={{ margin: "5px" }}>Home</a>
-        </Link>
-        <Link href="/about">
-          <a style={{ margin: "5px" }}>About</a>
-        </Link>
-      </menu>
+      <Link href="/">
+        <a className={style.container}>
+          <h3>Home</h3>
+          <div>
+            <Avocado size="58px" />
+          </div>
+        </a>
+      </Link>
     </nav>
   );
 };
