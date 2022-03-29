@@ -1,0 +1,40 @@
+🔍 #UnderTheHood Dynamic Static Generation: getStaticPaths
+<h4>Ideas/conceptos claves</h4>
+Basic Features: Data Fetching | Next.js
+
+<h4>Apuntes</h4>
+Cuando necesitamos hacer request con getStaticProps de cosas especificas entonces usamos la función que conocemos. Pero a getStaticProps le llega un contexto, el cual contiene nuestra ruta actual dentro del objeto params
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.id as string
+  const response = await fetch(
+    `https://platzi-avocados.vercel.app//api/avo/${id}`
+  )
+  const { data: product }: TAPIAvoResponse = await response.json()
+
+  return {
+    props: {
+      product,
+    },
+  }
+}
+Pero de antemano debemos decirle a Next.js cuales serán nuestras paginas que tendremos con la función getStaticPaths
+
+export const getStaticPaths = async () => {
+  const response = await fetch('https://platzi-avocados.vercel.app/api/avo')
+  const { data: productList }: TAPIAvoResponse = await response.json()
+
+  const paths = productList.map(({ id }) => ({
+    params: {
+      id,
+    },
+  }))
+
+  return {
+    paths,
+    // Incremental static generation
+    // 404 for everything else
+    fallback: false,
+  }
+}
+RESUMEN: Para generar rutas dinámicas y con extracción del servidor es necesario tener los dos métodos getStaticPaths para devolver un objeto el cual tenga las posibles rutas y getStaticProps con su context el cual nos dará la ruta actual

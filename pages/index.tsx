@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import CardItem from "../components/Card/Card";
-// import dotenv from "dotenv";
-// dotenv.config();
-// const urlAPI = process.env.NEXT_URL_API;
 // import Loader from "../components/Loader/Loader";
 // import axios, { AxiosResponse } from "axios";
 import fetch from "isomorphic-unfetch";
