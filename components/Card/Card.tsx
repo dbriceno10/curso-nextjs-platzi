@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { Card } from "semantic-ui-react";
+import style from "./Card.module.css";
 
 const CardItem = ({ id, name, image, price }: any) => {
   return (
-    <div key={id}>
+    <div className={style.container} key={id}>
       <Link href="/product/[id]" as={`/product/${id}`}>
         <Card
           as="a"
