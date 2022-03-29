@@ -10,13 +10,25 @@ import style from "./index.module.css";
 const url: string | undefined =
   process.env.NEXT_PUBLIC_API || "http://localhost:3000";
 
-export const getServerSideProps = async () => {
+// export const getServerSideProps = async () => {
+//   const response = await fetch(`${url}/api/avo`);
+//   const { data: productList }: TAPIAvoResponse = await response.json();
+
+//   return {
+//     props: {
+//       // productList: data,
+//       productList,
+//     },
+//   };
+// };
+
+export const getStaticProps = async () => {
+  //Estos métodos solo se pueden utilizar en los componentes que son páginas
   const response = await fetch(`${url}/api/avo`);
   const { data: productList }: TAPIAvoResponse = await response.json();
 
   return {
     props: {
-      // productList: data,
       productList,
     },
   };
