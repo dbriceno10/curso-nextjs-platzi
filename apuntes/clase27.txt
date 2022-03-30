@@ -1,0 +1,26 @@
+➡ Link y Proxy
+Ahora al momento de usar el componente Link no es necesario especificar la propiedad as
+
+Solo debemos poner el href poniendo el link real
+<Link href={`/product/${id}`}>
+	...
+</Link>
+Podemos crear rutas que mostraran el contenido de otras rutas dentro de nuestra aplicación web
+
+Creamos un archivo en la ruta del proyecto next.config.js
+module.exports = {
+  async rewrites() {
+    return [
+      {
+				// Nueva ruta
+        source: '/avocado/:path*',
+				// De que ruta vendrá
+        destination: '/product/:path*',
+      },
+    ]
+  },
+}
+
+
+
+https://nextjs.org/blog/next-10
