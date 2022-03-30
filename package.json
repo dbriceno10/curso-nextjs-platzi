@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "dev:inspect": "npm --node-options=--inspect=0.0.0.0:9229 run dev",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "export": "next export"
   },
   "keywords": [],
   "author": "",

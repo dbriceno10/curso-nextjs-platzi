@@ -1,0 +1,23 @@
+✈️ Exportando la pagina a archivos estáticos
+<h4>Apuntes</h4>
+Si tenemos una pagina estatica podemos exportarla a archivos netamente HTML, CSS y JS. De tal manera que no necesitemos un servidor especializado 👀 OJO solo cuando tenemos el proyecto con Archivos estáticos de otra forma no convertirá lo que este de lado del servidor.
+
+Para configurar necesitamos incluir estas caracteristicas en Next.js
+
+"scripts": {
+    "export": "next export",
+  },
+Se recomienda previamente compilar nuestra aplicación con el comando build.
+
+RESUMEN: Con Next export convertimos nuestro proyecto a archivos netamente HTML, CSS y JS.
+
+
+
+Para los que “express” les este dando problemas debido a typescript
+En el archivo cors-middleware
+Usar @ts-ignore de typescript
+
+import corsWrapper from 'cors'
+// @ts-ignore
+import { RequestHandler } from 'express'
+...
