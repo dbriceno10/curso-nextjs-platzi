@@ -1,0 +1,26 @@
+📈 Performance
+<h4>Ideas/conceptos claves</h4>
+Hydration.- tiempo en que el JS de React comienza a funcionar
+
+FCP.- First Content Paint
+
+TTFB.- Time to first bite, indicador del tiempo en requerir cosas de otro servidor
+
+<h4>Apuntes</h4>
+Next.js nos ayuda bastante con herramientas de performance.
+
+Para ello dentro de _app.js agregamos y exportamos la función reportWebVitals, este recibe un parámetro llamado metric.
+
+export function reportWebVitals(metric) {
+  console.log(metric)
+  // analytics - calibre
+  // serverAnulicts.log(metric)
+}
+Esto nos imprime parámetros los cuales lo podemos enviar a servidores de análisis
+
+RESUMEN: Next.js nos da herramientas de desarrollo para métricas de carga de sitios
+
+¡Esto está genial! Muchas gracias por este gran aporte. De igual forma anexo la documentación de Next donde mencionan algunas métricas adicionales que se pueden agregar.
+Measuring performance
+
+https://nextjs.org/docs/advanced-features/measuring-performance

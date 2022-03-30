@@ -1,6 +1,12 @@
-import { AppProps } from "next/app";
+import { AppProps, NextWebVitalsMetric } from "next/app";
 import Layout from "../components/Layout/Layout";
 import "../style.css";
+
+// // función especial para verificar el rendimiento de la aplicación
+// export function reportWebVitals(metric: NextWebVitalsMetric) {
+//   // console.log(metric);
+//   // aplicaciones tipo analytics - calibre se pueden enviar al servidor
+// }
 
 function MyApp({ Component, pageProps }: AppProps) {
   //Está englobando en este componente a todas nuestras páginas.
