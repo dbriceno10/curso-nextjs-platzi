@@ -1,0 +1,32 @@
+🖼️ Next.js image
+El equipo de Next.js trabajaron en conjunto con ingenieros de google para crear un componente de imágenes
+
+Las imágenes quedaron atrás a lo largo del tiempo en la web mientras otras tecnologías evolucionan
+
+para ver las dependencias que se pueden actualizar
+
+yarn upgrade-interactive --latest
+Dependencias rojas: pasar de grandes versiones
+Al usar el componente Image lo que hace es usar dos estrategias:
+
+Lazy loading ⇒ Las imágenes se descargan solo cuando son visibles en la pantalla
+Optimización de tamaño ⇒ Next.js optimizara según lo que especificamos como tamaño recortando y ajustando
+Se puede especificar en Next.js si deseamos usar un servicio de optimización
+En caso de que no se especifique lo hara dentro de su servidor
+
+
+
+2
+Hey ! Si se preguntan como funciona el Lazy loading por debajo usando solo Javascript vanilla, el mismo profesor lo explica en uno de los talleres del Curso de manipulacion del DOM especificamente el “Workshop 2 : Lazy Loading” .
+
+Haciendo uso de Intersection Observer una Api del navegador muy poderosa que tambien se le dedica una clase en el Curso profesional De JavaScript
+
+Espero les ayude !
+
+
+
+COMANDO PARA VERIFIVAR ACTUALIZACIONES DE DEPENDENCIAS CON NPM 
+npm install -g npm-check-updates
+
+COMANDO PARA ACTUALIZAR DEPENDENCIAS
+ncu -u
