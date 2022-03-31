@@ -53,15 +53,16 @@ import Detail from "../../components/Detail/Detail";
 
 // const ProductItem = ({ product }: { product: TProduct }) => {
 const ProductItem = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const {
-    query: { productId },
+    query: { id },
   } = useRouter();
   const [product, setProduct] = useState<TProduct[]>([]);
   useEffect(() => {
-    if (productId !== undefined) {
+    console.log(id);
+    if (id !== undefined) {
       window
-        .fetch(`/api/avo/${productId}`)
+        .fetch(`/api/avo/${id}`)
         .then((response) => response.json())
         // .then((data) => console.log(data)); //Investigar. Las funciones son una clase principal en js así que el console.log lo podemos utilizar de esta manera y consologuear sin pasarle ningun parámetro o funcioón anónima al then
         .then((data) => {
@@ -69,7 +70,7 @@ const ProductItem = () => {
           setProduct([data]);
         });
     }
-  }, [productId]);
+  }, [id]);
   return (
     <div>
       {!product.length ? (
