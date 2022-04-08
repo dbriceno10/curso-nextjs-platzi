@@ -21,7 +21,7 @@ class MyDocument extends Document {
           <meta
             name="image"
             property="og:image"
-            content="/pages/miniatura.png"
+            content="https://raw.githubusercontent.com/dbriceno10/curso-nextjs-platzi/master/pages/miniatura.png"
           />
           <meta
             name="description"
