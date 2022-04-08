@@ -14,7 +14,7 @@ class MyDocument extends Document {
           {/* <link rel="icon" href="/favicon.ico" /> */}
           <link
             rel="shortcut icon"
-            href="./svgviewer-png-output.png"
+            href="https://raw.githubusercontent.com/dbriceno10/curso-nextjs-platzi/master/pages/svgviewer-png-output.png"
             type="image/x-icon"
           />
           <meta name="author" content="Daniel Alejandro Briceño Salazar" />
