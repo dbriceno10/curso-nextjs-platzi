@@ -18,7 +18,11 @@ class MyDocument extends Document {
             type="image/x-icon"
           />
           <meta name="author" content="Daniel Alejandro Briceño Salazar" />
-          <meta name="image" property="og:image" content="./miniatura.png" />
+          <meta
+            name="image"
+            property="og:image"
+            content="/pages/miniatura.png"
+          />
           <meta
             name="description"
             property="og:description"
